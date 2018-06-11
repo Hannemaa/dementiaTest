@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent mmstIntent = new Intent(MainActivity.this, MMSTActivity.class);
                 MainActivity.this.startActivity(mmstIntent);
+
             }
         });
 

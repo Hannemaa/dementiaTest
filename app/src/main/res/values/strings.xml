@@ -4,4 +4,18 @@
     <string name="open_resultview">Vorherige Tests </string>
     <string name="title_activity_mmst">MMST</string>
     <string name="action_settings">Einstellungen</string>
+
+    <string name="dateLbl">Datum</string>
+    <string name="expertNameLbl">Gutachter</string>
+    <string name="expertNameInput">Name des Gutachters</string>
+    <string name="patientHeaderLbl">Patientendaten</string>
+    <string name="patientNameLbl">Nachname</string>
+    <string name="patientNameInput">Nachname</string>
+    <string name="patientFirstnameLbl">Vorname</string>
+    <string name="patientFirstnameInput">Vorname</string>
+    <string name="patientAgeGroupLbl">Jahrgang</string>
+    <string name="patientAgeGroupInput">1920</string>
+    <string name="agreementLbl">Einverständnis</string>
+    <string name="othersLbl">Sonstiges</string>
+
 </resources>
