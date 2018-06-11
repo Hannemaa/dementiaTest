@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Demenz Tester</string>
+    <string name="start_MMSE">Start MMST</string>
+    <string name="open_resultview">Vorherige Tests </string>
+    <string name="title_activity_mmst">MMST</string>
+    <string name="action_settings">Einstellungen</string>
+</resources>
