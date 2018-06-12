@@ -5,6 +5,8 @@
     <string name="title_activity_mmst">MMST</string>
     <string name="action_settings">Einstellungen</string>
 
+    <string name="notEmptyError">Dieses Feld darf nicht leer sein.</string>
+    <string name="impossibleInputError">Problem mit der Angabe. Bitte prüfen Sie diese Angabe.</string>
     <string name="dateLbl">Datum</string>
     <string name="expertNameLbl">Gutachter</string>
     <string name="expertNameInput">Name des Gutachters</string>

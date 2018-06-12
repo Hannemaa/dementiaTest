@@ -6,168 +6,21 @@
     android:layout_height="match_parent"
     tools:context="hannemann.dementiatest.MMSTActivityFragment"
     tools:showIn="@layout/activity_mmst">
-
-    <TextView
-        android:id="@+id/expertNameLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/expertNameLbl"
-        android:textSize="24sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/expertNameTxf"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/expertNameInput"
-        android:inputType="textCapSentences"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintLeft_toRightOf="@+id/expertNameLbl"
-        app:layout_constraintRight_toLeftOf="@+id/dateLbl"
-        app:layout_constraintTop_toTopOf="@+id/expertNameLbl"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
-
-    <EditText
-        android:id="@+id/actualDateTxf"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:inputType="date"
-        android:ems="5"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/dateLbl"/>
-
-    <TextView
-        android:id="@+id/dateLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/dateLbl"
-        android:textSize="24sp"
-        app:layout_constraintRight_toLeftOf="@+id/actualDateTxf"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/patientdataLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/patientHeaderLbl"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/expertNameTxf" />
-
-    <TextView
-        android:id="@+id/surnameLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="@string/patientNameLbl"
-        android:textSize="24sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/patientdataLbl"/>
-
-    <EditText
-        android:id="@+id/surnameTxf"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/patientNameInput"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toRightOf="@+id/surnameLbl"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/surnameLbl"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
-
-    <TextView
-        android:id="@+id/firstnameLbl"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:text="@string/patientFirstnameLbl"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/surnameTxf"
-        app:layout_constraintRight_toRightOf="@+id/surnameLbl"
-        app:layout_constraintHorizontal_bias="0.0"
-        android:layout_marginStart="8dp" />
-
-    <EditText
-        android:id="@+id/firstnameTxf"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:hint="@string/patientFirstnameInput"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="@+id/surnameTxf"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/firstnameLbl"/>
-
-    <TextView
-        android:id="@+id/ageGroupLbl"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:textSize="24sp"
-        android:text="@string/patientAgeGroupLbl"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstnameTxf"
-        app:layout_constraintRight_toRightOf="@+id/firstnameLbl"
-        app:layout_constraintHorizontal_bias="0.0" />
-
-    <EditText
-        android:id="@+id/ageGroupTxf"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="4"
-        android:hint="@string/patientAgeGroupInput"
-        app:layout_constraintLeft_toLeftOf="@+id/firstnameTxf"
-        app:layout_constraintTop_toTopOf="@+id/ageGroupLbl" />
-
-    <CheckBox
-        android:id="@+id/agreementCxb"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/agreementLbl"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/ageGroupTxf"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toRightOf="@+id/ageGroupTxf"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ageGroupLbl"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
-
-    <TextView
-        android:id="@+id/othersLbl"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="@string/othersLbl"
-        android:textSize="24sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/ageGroupTxf"
-        app:layout_constraintRight_toRightOf="@+id/ageGroupLbl"
-        app:layout_constraintHorizontal_bias="0.0" />
-
-    <EditText
-        android:id="@+id/othersTxf"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        app:layout_constraintLeft_toRightOf="@+id/othersLbl"
-        app:layout_constraintTop_toTopOf="@+id/othersLbl"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginStart="8dp" />
+    <ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/vf"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+        <include layout="@layout/fragment_mmst_startformular" />
+        <!--include layout="@layout/content_task01" />
+        <include layout="@layout/content_task02" />
+        <include layout="@layout/content_task03" />
+        <include layout="@layout/content_task04" />
+        <include layout="@layout/content_task05" />
+        <include layout="@layout/content_task06" />
+        <include layout="@layout/content_task07" />
+        <include layout="@layout/content_task08" />
+        <include layout="@layout/content_task09" />
+        <include layout="@layout/content_task10" />
+        <include layout="@layout/content_task11" /-->
+    </ViewFlipper>
 </android.support.constraint.ConstraintLayout>
