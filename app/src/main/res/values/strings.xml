@@ -7,6 +7,11 @@
 
     <string name="notEmptyError">Dieses Feld darf nicht leer sein.</string>
     <string name="impossibleInputError">Problem mit der Angabe. Bitte prüfen Sie diese Angabe.</string>
+    <string name="dialog_noAgreement_title">Kein Einverständnis?</string>
+    <string name="dialog_noAgreement_message">Ist der Patient wirklich nicht einverstanden? \nWenn ja, wird der Test hier beendet.</string>
+    <string name="dialog_ok">Einverständnis bekommen</string>
+    <string name="dialog_cancel">Test abbrechen</string>
+
     <string name="dateLbl">Datum</string>
     <string name="expertNameLbl">Gutachter</string>
     <string name="expertNameInput">Name des Gutachters</string>

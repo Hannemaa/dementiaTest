@@ -1,5 +1,7 @@
 package hannemann.dementiatest;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -47,24 +49,42 @@ public class MMSTActivity extends AppCompatActivity {
             public void onClick(View view) {
                 switch (taskNumber) {
                     case 0:
-                        if(checkInput(expertTxf)&&checkInput(actualDateTxf)&&
-                                checkInput(surnameTxf)&&checkInput(firstnameTxf)&&checkInput(ageGroupTxf)) {
+                        if(!checkInput(expertTxf) || !checkInput(actualDateTxf) ||
+                                !checkInput(surnameTxf) || !checkInput(firstnameTxf)
+                                || !checkInput(ageGroupTxf)) {
+                            break;
+                        } else {
                             int yearOfBirth = Integer.parseInt(ageGroupTxf.getText().toString());
-                            if (yearOfBirth >= Calendar.getInstance().get(Calendar.YEAR)) {
+                            if (yearOfBirth >= Calendar.getInstance().get(Calendar.YEAR)
+                                    ||  yearOfBirth < 1900) {
                                 ageGroupTxf.setError(getString(R.string.impossibleInputError));
                                 break;
                             }
                             //boolean agreement = ((CheckBox) view.findViewById(R.id.agreementCxb)).isChecked();
-                            Patient p = new Patient(surnameTxf.getText().toString(),
+                            final Patient p = new Patient(surnameTxf.getText().toString(),
                                     firstnameTxf.getText().toString(),
                                     yearOfBirth, othersTxf.getText().toString(),
                                     agreementCxb.isChecked());
                             if (!p.isAgreed()) {
-                                //TODO andere Seite Meldung (Nachfrage)
-                                // ob Einverstaendnis nicht erteilt wird oder vergessen wurde,
-                                // weiterhin nein = Test beenden
-                                // bei ja = weiter
-                                break;
+                                AlertDialog.Builder builder = new AlertDialog.Builder(MMSTActivity.this);
+                                builder.setMessage(R.string.dialog_noAgreement_message)
+                                        .setTitle(R.string.dialog_noAgreement_title);
+                                builder.setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        p.setAgreed();
+                                    }
+                                });
+                                builder.setNegativeButton(R.string.dialog_cancel, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        //TODO save patient and stopp text (switch to resultview or start page)
+                                        // weiterhin nein = Test beenden
+                                    }
+                                });
+                                AlertDialog dialog = builder.create();
+                                dialog.show();
+                                if (!p.isAgreed()) {
+                                    break;
+                                }
                             }
                             SimpleDateFormat mdformat = new SimpleDateFormat("dd.MM.yyyy");
                             Date date;
@@ -73,8 +93,6 @@ public class MMSTActivity extends AppCompatActivity {
                                 test = new Mmse(p, expertTxf.getText().toString(), date);
                             } catch (ParseException e) {
                             }
-                        } else {
-                            break;
                         }
                     default: taskNumber++;
                         if (taskNumber < 11) {
@@ -83,8 +101,6 @@ public class MMSTActivity extends AppCompatActivity {
                                     .setAction("Action", null).show();
                         }
                 }
-
-
             }
         });
 
