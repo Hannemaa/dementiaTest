@@ -19,6 +19,7 @@ import java.util.Date;
 public class MMSTActivity extends AppCompatActivity {
     private ViewFlipper vf;
     private EditText actualDateTxf, expertTxf, firstnameTxf, surnameTxf, othersTxf, ageGroupTxf;
+    private CheckBox agreementCxb;
     private Mmse test;
     private int taskNumber = 0;
 
@@ -37,7 +38,7 @@ public class MMSTActivity extends AppCompatActivity {
         firstnameTxf = (EditText) this.findViewById(R.id.firstnameTxf);
         surnameTxf = (EditText) this.findViewById(R.id.surnameTxf);
         othersTxf = (EditText) this.findViewById(R.id.othersTxf);
-
+        agreementCxb = ((CheckBox) this.findViewById(R.id.agreementCxb));
 
         vf = (ViewFlipper)findViewById(R.id.vf);
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -48,17 +49,22 @@ public class MMSTActivity extends AppCompatActivity {
                     case 0:
                         if(checkInput(expertTxf)&&checkInput(actualDateTxf)&&
                                 checkInput(surnameTxf)&&checkInput(firstnameTxf)&&checkInput(ageGroupTxf)) {
-                            if (Integer.parseInt(ageGroupTxf.getText().toString()) >= Calendar.getInstance().get(Calendar.YEAR)) {
+                            int yearOfBirth = Integer.parseInt(ageGroupTxf.getText().toString());
+                            if (yearOfBirth >= Calendar.getInstance().get(Calendar.YEAR)) {
                                 ageGroupTxf.setError(getString(R.string.impossibleInputError));
                                 break;
                             }
-                          /*  boolean t = ((CheckBox) view.findViewById(R.id.agreementCxb)).isChecked();
+                            //boolean agreement = ((CheckBox) view.findViewById(R.id.agreementCxb)).isChecked();
                             Patient p = new Patient(surnameTxf.getText().toString(),
                                     firstnameTxf.getText().toString(),
-                                    ageGroupTxf.getValue(), othersTxf.getText().toString(),
-                                    t);
-                            if (p.isAgreed()) {
-                                //TODO Meldung (Nachfrage) ob Einverstaendnis nicht erteilt wird oder vergessen wurde, weiterhin nein = Test beenden
+                                    yearOfBirth, othersTxf.getText().toString(),
+                                    agreementCxb.isChecked());
+                            if (!p.isAgreed()) {
+                                //TODO andere Seite Meldung (Nachfrage)
+                                // ob Einverstaendnis nicht erteilt wird oder vergessen wurde,
+                                // weiterhin nein = Test beenden
+                                // bei ja = weiter
+                                break;
                             }
                             SimpleDateFormat mdformat = new SimpleDateFormat("dd.MM.yyyy");
                             Date date;
@@ -66,7 +72,7 @@ public class MMSTActivity extends AppCompatActivity {
                                 date = mdformat.parse(actualDateTxf.getText().toString());
                                 test = new Mmse(p, expertTxf.getText().toString(), date);
                             } catch (ParseException e) {
-                            }*/
+                            }
                         } else {
                             break;
                         }
