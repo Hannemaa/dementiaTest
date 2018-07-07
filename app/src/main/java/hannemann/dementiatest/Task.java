@@ -8,9 +8,7 @@ public class Task {
     private int points = 0;
     private boolean assessed = true;
 
-    public Task (int number) {
-        this.taskNum = number;
-    }
+    public Task (int number) { this.taskNum = number; }
 
     public int getTaskNum() {
         return taskNum;
@@ -20,12 +18,9 @@ public class Task {
         return points;
     }
 
-    public void successful() {
-        this.points++;
-    }
+    public void successful() { assessed = true; points++; }
 
-    public void failed() {
-    }
+    public void failed() { assessed = true; points = 0; }
 
     public boolean isAssessed() {
         return assessed;

@@ -15,6 +15,9 @@ public class Mmse {
         this.patientUnderTest = patient;
         this.expertName = expert;
         this.dateOfMmse = date;
+        for(int i = 0; i < 30; i++) {
+            points[i] = new Task(i);
+        }
     }
 
     public void setPatientUnderTest(Patient patientUnderTest) {
@@ -28,4 +31,12 @@ public class Mmse {
     public void setDateOfMmse(Date dateOfMmse) {
         this.dateOfMmse = dateOfMmse;
     }
+
+    public void setTaskPointSuccessful(int taskNumber) {
+        points[taskNumber].successful();
+    }
+
+    public void setTaskPointFailed(int taskNumber) { points[taskNumber].failed(); }
+
+    public void setTaskPointFalse(int taskNumber) { points[taskNumber].setAssessed(false); }
 }
