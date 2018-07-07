@@ -3,7 +3,6 @@
     <string name="start_MMSE">Start MMST</string>
     <string name="open_resultview">Vorherige Tests </string>
     <string name="title_activity_mmst">MMST</string>
-    <string name="action_settings">Einstellungen</string>
 
     <string name="notEmptyError">Dieses Feld darf nicht leer sein.</string>
     <string name="impossibleInputError">Problem mit der Angabe. Bitte prüfen Sie diese Angabe.</string>
@@ -11,10 +10,12 @@
     <string name="dialog_noAgreement_message">Ist der Patient wirklich nicht einverstanden? \nWenn ja, wird der Test hier beendet.</string>
     <string name="dialog_ok">Einverständnis bekommen</string>
     <string name="dialog_cancel">Test abbrechen</string>
+    <string name="dialog_voiceInput">Sprechen Sie jetzt.</string>
+    <string name="nextBtn">Weiter</string>
 
     <string name="dateLbl">Datum</string>
     <string name="expertNameLbl">Gutachter</string>
-    <string name="expertNameInput">Name des Gutachters</string>
+    <string name="expertNameInput">Name/ID des Gutachters</string>
     <string name="patientHeaderLbl">Patientendaten</string>
     <string name="patientNameLbl">Nachname</string>
     <string name="patientNameInput">Nachname</string>
@@ -24,5 +25,38 @@
     <string name="patientAgeGroupInput">1920</string>
     <string name="agreementLbl">Einverständnis</string>
     <string name="othersLbl">Sonstiges</string>
+
+    <string name="task01_Uhrzeit">Bitte zeichnen Sie eine Uhr!</string>
+    <!--string name="task01_Uhrzeit">Wie spät ist es? Malen Sie bitte eine Uhr.</string-->
+
+    <string name="task02_wo">Wo sind Sie gerade?</string>
+
+    <string name="task03">Sagen Sie die folgenden Begriffe laut:</string>
+    <string name="task03_words">Apfel, \nPfennig, \nTisch</string>
+    <string name="task03_wordsApfel">Apfel</string>
+    <string name="task03_wordsPfennig">Pfennig</string>
+    <string name="task03_wordsTisch">Tisch</string>
+    <string name="task03_memorize">Merken Sie sich die Begriffe!</string>
+
+    <string name="task04">Subtrahieren sie 7 von </string>
+
+    <string name="task05">Welche Begriffe sollten Sie sich merken? Wiederholen Sie diese laut.</string>
+
+    <string name="task06_StiftArmbanduhr">Welchen Gegenstand sehen Sie auf dem Bild?</string>
+
+    <string name="task07">Drücken Sie auf das Lautsprechersymbol und sprechen Sie die zu hörende Phrase nach.</string>
+
+    <string name="task08">Nehmen Sie ein Blatt Papier, falten Sie es und legen Sie es auf den Boden.</string>
+
+    <string name="task09">Lesen Sie die folgende Aufforderung und befolgen Sie sie:</string>
+    <string name="task09_AugenZu">Schließen Sie Ihre Augen</string>
+
+    <string name="task10">Formulieren Sie einen Satz und schreiben Sie ihn hier auf</string>
+    <string name="task11">Zeichnen Sie zwei Fünfecke die sich überschneiden.</string>
+
+    <string name="taskEnd">Test abgeschlossen!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

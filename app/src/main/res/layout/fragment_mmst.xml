@@ -6,12 +6,13 @@
     android:layout_height="match_parent"
     tools:context="hannemann.dementiatest.MMSTActivityFragment"
     tools:showIn="@layout/activity_mmst">
+
     <ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/vf"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
         <include layout="@layout/fragment_mmst_startformular" />
-        <!--include layout="@layout/content_task01" />
+        <include layout="@layout/content_task01" />
         <include layout="@layout/content_task02" />
         <include layout="@layout/content_task03" />
         <include layout="@layout/content_task04" />
@@ -21,6 +22,26 @@
         <include layout="@layout/content_task08" />
         <include layout="@layout/content_task09" />
         <include layout="@layout/content_task10" />
-        <include layout="@layout/content_task11" /-->
+        <include layout="@layout/content_task11" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/taskEnd_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/taskEnd"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
     </ViewFlipper>
+
 </android.support.constraint.ConstraintLayout>
