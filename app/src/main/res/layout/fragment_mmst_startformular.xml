@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="hannemann.dementiatest.MMSTActivityFragment"
-    tools:showIn="@layout/activity_mmst">
+    tools:showIn="@layout/activity_mmst"
+    android:theme="@style/AppNormalSize">
 
     <TextView
         android:id="@+id/expertNameLbl"
