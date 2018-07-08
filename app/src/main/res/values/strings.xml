@@ -56,7 +56,9 @@
 
     <string name="taskEnd">Test abgeschlossen!</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_result_list">MMST Ergebnisse</string>
+    <string name="result_openBtn">ÖFFNEN</string>
+
+    <string name="action_settings">Settings</string>
 
 </resources>

@@ -6,7 +6,7 @@ package hannemann.dementiatest;
 public class Task {
     final private int taskNum;
     private int points = 0;
-    private boolean assessed = true;
+    private boolean assessed = false;
 
     public Task (int number) { this.taskNum = number; }
 

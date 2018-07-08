@@ -12,14 +12,28 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".MMSTActivity"
-            android:windowSoftInputMode="adjustResize"
             android:label="@string/title_activity_mmst"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="hannemann.dementiatest.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ResultListActivity"
+            android:label="@string/title_activity_result_list"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="hannemann.dementiatest.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

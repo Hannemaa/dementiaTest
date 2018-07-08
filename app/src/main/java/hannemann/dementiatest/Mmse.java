@@ -1,17 +1,20 @@
 package hannemann.dementiatest;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Ann on 12.06.2018.
  */
 public class Mmse {
     private Patient patientUnderTest;
-    private String expertName;
-    private Date dateOfMmse;
+    private String expertName, dateOfMmse;
     private Task[] points = new Task[30];
 
-    public Mmse(Patient patient, String expert, Date date) {
+    public Mmse(Patient patient, String expert, String date) {
         this.patientUnderTest = patient;
         this.expertName = expert;
         this.dateOfMmse = date;
@@ -28,7 +31,7 @@ public class Mmse {
         this.expertName = expertName;
     }
 
-    public void setDateOfMmse(Date dateOfMmse) {
+    public void setDateOfMmse(String dateOfMmse) {
         this.dateOfMmse = dateOfMmse;
     }
 
@@ -39,4 +42,20 @@ public class Mmse {
     public void setTaskPointFailed(int taskNumber) { points[taskNumber].failed(); }
 
     public void setTaskPointFalse(int taskNumber) { points[taskNumber].setAssessed(false); }
+
+    public Patient getPatientUnderTest() {
+        return patientUnderTest;
+    }
+
+    public List<String> getTestData() {
+        List<String> result = new ArrayList<>();
+        result.add(patientUnderTest.getSurnamePatient() + " " + patientUnderTest.getFirstnamePatient());
+        result.add(dateOfMmse);
+        int sum = 0;
+        for (Task t: points) {
+            sum += t.getPoints();
+        }
+        result.add(Integer.toString(sum));
+        return result;
+    }
 }

@@ -86,7 +86,7 @@ public class MMSTActivity extends AppCompatActivity {
                                     yearOfBirth, othersTxf.getText().toString(),
                                     agreementCxb.isChecked());
                             if (!p.isAgreed()) {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(MMSTActivity.this);
+                                final AlertDialog.Builder builder = new AlertDialog.Builder(MMSTActivity.this);
                                 builder.setMessage(R.string.dialog_noAgreement_message)
                                         .setTitle(R.string.dialog_noAgreement_title);
                                 builder.setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
@@ -97,15 +97,9 @@ public class MMSTActivity extends AppCompatActivity {
                                 });
                                 builder.setNegativeButton(R.string.dialog_cancel, new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        SimpleDateFormat mdformat = new SimpleDateFormat("dd.MM.yyyy");
-                                        Date date = new Date();
-                                        try {
-                                            date = mdformat.parse(actualDateTxf.getText().toString());
-                                        } catch (ParseException e) {
-                                        }
-                                        test = new Mmse(p, expertTxf.getText().toString(), date);
-                                        // TODO save patient and stopp text (switch to resultview or start page)
-                                        // weiterhin nein = Test beenden
+                                        test = new Mmse(p, expertTxf.getText().toString(), actualDateTxf.getText().toString());
+                                        new FileReaderSaver(builder.getContext()).saveMMSE(test);
+                                        MMSTActivity.super.onBackPressed();
                                     }
                                 });
                                 AlertDialog dialog = builder.create();
@@ -149,13 +143,7 @@ public class MMSTActivity extends AppCompatActivity {
             }
 
             private void startTest(Patient p) {
-                SimpleDateFormat mdformat = new SimpleDateFormat("dd.MM.yyyy");
-                Date date = new Date();
-                try {
-                    date = mdformat.parse(actualDateTxf.getText().toString());
-                } catch (ParseException e) {
-                }
-                test = new Mmse(p, expertTxf.getText().toString(), date);
+                test = new Mmse(p, expertTxf.getText().toString(), actualDateTxf.getText().toString());
                 agreementCxb.setChecked(true);
                 taskNumber++;
                 vf.setDisplayedChild(taskNumber);
@@ -169,7 +157,7 @@ public class MMSTActivity extends AppCompatActivity {
                     Snackbar.make(view, "Number " + taskNumber, Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 } else {
-                    //TODO export results + close test
+                    new FileReaderSaver(view.getContext()).saveMMSE(test);
                     MMSTActivity.super.onBackPressed();
                 }
             }
