@@ -7,6 +7,7 @@ public class Task {
     final private int taskNum;
     private int points = 0;
     private boolean assessed = false;
+    private Object information;
 
     public Task (int number) { this.taskNum = number; }
 
@@ -28,5 +29,13 @@ public class Task {
 
     public void setAssessed(boolean assessed) {
         this.assessed = assessed;
+    }
+
+    public void setInformation(Object info) {
+        this.information = info;
+    }
+
+    public Object getInformation() {
+        return information;
     }
 }

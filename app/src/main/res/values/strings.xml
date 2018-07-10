@@ -43,10 +43,15 @@
     <string name="task05">Welche Begriffe sollten Sie sich merken? Wiederholen Sie diese laut.</string>
 
     <string name="task06_StiftArmbanduhr">Welchen Gegenstand sehen Sie auf dem Bild?</string>
+    <string name="task06_Armbanduhr">Armbanduhr</string>
+    <string name="task06_Uhr">Uhr</string>
+    <string name="task06_Bleistift">Bleistift</string>
+    <string name="task06_Stift">Stift</string>
 
     <string name="task07">Drücken Sie auf das Lautsprechersymbol und sprechen Sie die zu hörende Phrase nach.</string>
+    <string name="task07_sound">Bitte keine Wenn und Aber.</string>
 
-    <string name="task08">Nehmen Sie ein Blatt Papier, falten Sie es und legen Sie es auf den Boden.</string>
+    <string name="task08">Nehmen Sie ein Blatt Papier, \n falten Sie es und \n legen Sie es auf den Boden.</string>
 
     <string name="task09">Lesen Sie die folgende Aufforderung und befolgen Sie sie:</string>
     <string name="task09_AugenZu">Schließen Sie Ihre Augen</string>

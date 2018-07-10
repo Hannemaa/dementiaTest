@@ -39,9 +39,25 @@ public class Mmse {
         points[taskNumber].successful();
     }
 
-    public void setTaskPointFailed(int taskNumber) { points[taskNumber].failed(); }
+    public void setTaskPointFailed(int taskNumber) { points[taskNumber].setAssessed(false); }
 
-    public void setTaskPointFalse(int taskNumber) { points[taskNumber].setAssessed(false); }
+    public void setTaskPointFalse(int taskNumber) { points[taskNumber].failed(); }
+
+    public void setTaskInformation(int taskNumber, Object info) {
+        points[taskNumber].setInformation(info);
+    }
+
+    public int getPoints() {
+        int sum = 0;
+        for (Task t: points) {
+            sum += t.getPoints();
+        }
+        return sum;
+    }
+
+    public Object getTaskInformation(int taskNumber) {
+        return points[taskNumber].getInformation();
+    }
 
     public Patient getPatientUnderTest() {
         return patientUnderTest;

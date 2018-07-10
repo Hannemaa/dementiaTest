@@ -36,13 +36,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:text="@string/task03_words"/>
 
-    <Button
-        android:id="@+id/recBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sprechen"
-        app:layout_constraintTop_toBottomOf="@+id/task03_words"/>
-
     <TextView
         android:id="@+id/task03_memorize"
         android:layout_width="0dp"
@@ -53,7 +46,16 @@
         android:text="@string/task03_memorize"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recBtn"
+        app:layout_constraintTop_toBottomOf="@+id/task03_recBtn"
         tools:layout_editor_absoluteY="0dp" />
+
+    <Button
+        android:id="@+id/task03_recBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sprechen"
+        app:layout_constraintTop_toBottomOf="@+id/task03_words"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
