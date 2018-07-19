@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MMSTActivity"
+    android:theme="@style/AppNormalSize">
+
+    <item
+        android:id="@+id/itemExpert"
+        android:title="Expertensicht"
+        app:showAsAction="never" />
+</menu>

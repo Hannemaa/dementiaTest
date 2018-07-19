@@ -63,6 +63,10 @@ public class Mmse {
         return patientUnderTest;
     }
 
+    public String getDateOfMmse() {
+        return dateOfMmse;
+    }
+
     public List<String> getTestData() {
         List<String> result = new ArrayList<>();
         result.add(patientUnderTest.getSurnamePatient() + " " + patientUnderTest.getFirstnamePatient());

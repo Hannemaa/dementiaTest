@@ -26,10 +26,21 @@
     <string name="agreementLbl">Einverständnis</string>
     <string name="othersLbl">Sonstiges</string>
 
-    <string name="task01_Uhrzeit">Bitte zeichnen Sie eine Uhr!</string>
+    <string name="taskClock_Uhrzeit">Bitte zeichnen Sie eine Uhr!</string>
     <!--string name="task01_Uhrzeit">Wie spät ist es? Malen Sie bitte eine Uhr.</string-->
 
-    <string name="task02_wo">Wo sind Sie gerade?</string>
+    <string name="task01_year">Welches Jahr haben wir?</string>
+    <string name="task01_season">Welche Jahreszeit haben wir?</string>
+    <string name="task01_day">Den wievielten des Monats haben wir?</string>
+    <string name="task01_weekday">Welcher Wochentag ist heute?</string>
+    <string name="task01_month">Welcher Monat ist gerade?</string>
+
+    <!--string name="task02_wo">Wo sind Sie gerade?</string-->
+    <string name="task02_country">In welchem Land sind wir?</string>
+    <string name="task02_canton">In welchem Kanton/Kreis sind wir?</string>
+    <string name="task02_locality">In welcher Ortschaft sind wir?</string>
+    <string name="task02_level">Auf welchem Stockwerk sind wir?</string>
+    <string name="task02_adress">An welchem Ort (Name oder Adresse) befinden wir uns hier?</string>
 
     <string name="task03">Sagen Sie die folgenden Begriffe laut:</string>
     <string name="task03_words">Apfel, \nPfennig, \nTisch</string>
@@ -48,10 +59,11 @@
     <string name="task06_Bleistift">Bleistift</string>
     <string name="task06_Stift">Stift</string>
 
-    <string name="task07">Drücken Sie auf das Lautsprechersymbol und sprechen Sie die zu hörende Phrase nach.</string>
-    <string name="task07_sound">Bitte keine Wenn und Aber.</string>
+    <string name="task07">Drücken Sie auf "Hören" und sprechen Sie die zu hörende Phrase nach.</string>
+    <string name="task07_sound">Bitte keine Wenn und Aber</string>
 
-    <string name="task08">Nehmen Sie ein Blatt Papier, \n falten Sie es und \n legen Sie es auf den Boden.</string>
+    <string name="task08">Lassen Sie sich nun ein Blatt Papier geben:</string>
+    <string name="task08_">Nehmen Sie das Blatt Papier in Ihre rechte Hand, \n falten Sie es mit beiden Händen und \n legen es dann auf Ihren Schoss!</string>
 
     <string name="task09">Lesen Sie die folgende Aufforderung und befolgen Sie sie:</string>
     <string name="task09_AugenZu">Schließen Sie Ihre Augen</string>
@@ -65,5 +77,6 @@
     <string name="result_openBtn">ÖFFNEN</string>
 
     <string name="action_settings">Settings</string>
+    <string name="title_activity_expert_view">ExpertViewActivity</string>
 
 </resources>
