@@ -1,7 +1,6 @@
 package hannemann.dementiatest;
 
 import android.content.Context;
-import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -14,21 +13,21 @@ import java.util.List;
  */
 public class FileReaderSaver {
     private Context fileContext;
+
     public FileReaderSaver(Context context) {
         this.fileContext = context;
     }
 
-    public void saveMMSE(Mmse test){
+    public void saveMMSE(Mmse test) {
         String fileContents = readFile();
         HashMap<String, List<String>> listDataChild = new HashMap<String, List<String>>();
-        listDataChild.put(test.getPatientUnderTest().getSurnamePatient(), test.getTestData());
+        listDataChild.put(test.getParticipantUnderTest().getSurname(), test.getTestData());
         fileContents += "\n" + listDataChild.entrySet().toString();
         try {
             FileOutputStream fOut = fileContext.openFileOutput("mmseData", Context.MODE_PRIVATE);
             fOut.write(fileContents.getBytes());
             fOut.close();
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -38,11 +37,10 @@ public class FileReaderSaver {
         try {
             FileInputStream fin = fileContext.openFileInput("mmseData");
             int c;
-            while( (c = fin.read()) != -1){
-                result = result + Character.toString((char)c);
+            while ((c = fin.read()) != -1) {
+                result = result + Character.toString((char) c);
             }
-        } catch(Exception e){
-            // TODO Auto-generated catch block
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return result;
@@ -53,11 +51,10 @@ public class FileReaderSaver {
         try {
             FileInputStream fin = fileContext.openFileInput("mmseData");
             int c;
-            while( (c = fin.read()) != -1){
-                result.add(Character.toString((char)c));
+            while ((c = fin.read()) != -1) {
+                result.add(Character.toString((char) c));
             }
-        } catch(Exception e){
-            // TODO Auto-generated catch block
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return result;

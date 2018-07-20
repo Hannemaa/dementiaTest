@@ -44,6 +44,15 @@ public class MMSTActivity extends AppCompatActivity {
     private int expectedResult = 100;
     private LocationManager locationManager;
 
+    /**
+     * @param view
+     * hide keyboard of given view
+     */
+    private static void hideKeyboard(View view) {
+        InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +60,9 @@ public class MMSTActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //prepare test data
         actualDateTxf = (EditText) this.findViewById(R.id.actualDateTxf);
-        getCurrentDate();
+        setCurrentDate();
 
         ageGroupTxf = (EditText) this.findViewById(R.id.ageGroupTxf);
         expertTxf = (EditText) this.findViewById(R.id.expertNameTxf);
@@ -60,16 +70,24 @@ public class MMSTActivity extends AppCompatActivity {
         surnameTxf = (EditText) this.findViewById(R.id.surnameTxf);
         othersTxf = (EditText) this.findViewById(R.id.othersTxf);
         agreementCxb = ((CheckBox) this.findViewById(R.id.agreementCxb));
+
+        //setup tasks
         taskX = (TextView) findViewById(R.id.taskX_text);
         answerTxf = (EditText) this.findViewById(R.id.answerTxf);
-
         paintView10 = (PaintView) findViewById(R.id.task10_paintView);
         paintView11 = (PaintView) findViewById(R.id.task11_paintView);
         metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         paintView10.init(metrics);
         paintView11.init(metrics);
+        setupTasks();
+    }
 
+    /**
+     * switch between tasks
+     * rate tasks
+     */
+    private void setupTasks() {
         vf = (ViewFlipper) findViewById(R.id.taskSpecific);
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -263,22 +281,27 @@ public class MMSTActivity extends AppCompatActivity {
                         nextTask(view, R.string.task03);
                         recordSpeech(R.id.task11_recBtn);
                         break;
-                    case 11: case 12: taskNumber = 13;
+                    case 11:
+                    case 12:
+                        taskNumber = 13;
                     case 13: //preparing case 14
-                        if(answerTxf.getText().toString().contains(getString(R.string.task03_wordsApfel))) {
+                        if (answerTxf.getText().toString().contains(getString(R.string.task03_wordsApfel))) {
                             test.setTaskPointSuccessful(11);
                         }
-                        if(answerTxf.getText().toString().contains(getString(R.string.task03_wordsPfennig))) {
+                        if (answerTxf.getText().toString().contains(getString(R.string.task03_wordsPfennig))) {
                             test.setTaskPointSuccessful(12);
                         }
-                        if(answerTxf.getText().toString().contains(getString(R.string.task03_wordsTisch))) {
+                        if (answerTxf.getText().toString().contains(getString(R.string.task03_wordsTisch))) {
                             test.setTaskPointSuccessful(13);
                         }
-                        answerTxf.setRawInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL);
+                        answerTxf.setRawInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
                         answerTxf.setHint("Ergebnis");
                         nextTask(view, getResources().getString(R.string.task04) + " " + expectedResult);
                         break;
-                    case 14: case 15: case 16: case 17: //rechnen
+                    case 14:
+                    case 15:
+                    case 16:
+                    case 17: //rechnen
                         calculation(view);
                         break;
                     case 18:
@@ -289,14 +312,16 @@ public class MMSTActivity extends AppCompatActivity {
                         recordSpeech(R.id.task19_recBtn);
                         nextTask(view, R.string.task05);
                         break;
-                    case 19: case 20: case 21:
-                        if(answerTxf.getText().toString().contains(getString(R.string.task03_wordsApfel))) {
+                    case 19:
+                    case 20:
+                    case 21:
+                        if (answerTxf.getText().toString().contains(getString(R.string.task03_wordsApfel))) {
                             test.setTaskPointSuccessful(19);
                         }
-                        if(answerTxf.getText().toString().contains(getString(R.string.task03_wordsPfennig))) {
+                        if (answerTxf.getText().toString().contains(getString(R.string.task03_wordsPfennig))) {
                             test.setTaskPointSuccessful(20);
                         }
-                        if(answerTxf.getText().toString().contains(getString(R.string.task03_wordsTisch))) {
+                        if (answerTxf.getText().toString().contains(getString(R.string.task03_wordsTisch))) {
                             test.setTaskPointSuccessful(21);
                         }
                         taskNumber = 21;
@@ -309,9 +334,9 @@ public class MMSTActivity extends AppCompatActivity {
                         }
                         break;
                     case 22:
-                        if(answerTxf.getText().toString().contains(getString(R.string.task06_Bleistift))||
-                                answerTxf.getText().toString().contains(getString(R.string.task06_Stift))||
-                                answerTxf.getText().toString().contains(getString(R.string.task06_Armbanduhr))||
+                        if (answerTxf.getText().toString().contains(getString(R.string.task06_Bleistift)) ||
+                                answerTxf.getText().toString().contains(getString(R.string.task06_Stift)) ||
+                                answerTxf.getText().toString().contains(getString(R.string.task06_Armbanduhr)) ||
                                 answerTxf.getText().toString().contains(getString(R.string.task06_Uhr))) {
                             test.setTaskPointSuccessful(taskNumber);
                         }
@@ -323,9 +348,9 @@ public class MMSTActivity extends AppCompatActivity {
                         }
                         break;
                     case 23:
-                        if(answerTxf.getText().toString().contains(getString(R.string.task06_Bleistift))||
-                                answerTxf.getText().toString().contains(getString(R.string.task06_Stift))||
-                                answerTxf.getText().toString().contains(getString(R.string.task06_Armbanduhr))||
+                        if (answerTxf.getText().toString().contains(getString(R.string.task06_Bleistift)) ||
+                                answerTxf.getText().toString().contains(getString(R.string.task06_Stift)) ||
+                                answerTxf.getText().toString().contains(getString(R.string.task06_Armbanduhr)) ||
                                 answerTxf.getText().toString().contains(getString(R.string.task06_Uhr))) {
                             test.setTaskPointSuccessful(taskNumber);
                         }
@@ -340,7 +365,7 @@ public class MMSTActivity extends AppCompatActivity {
                         });
                         break;
                     case 24:
-                        if(answerTxf.getText().toString().toLowerCase().contains(
+                        if (answerTxf.getText().toString().toLowerCase().contains(
                                 getString(R.string.task07_sound).toLowerCase())) {
                             test.setTaskPointSuccessful(taskNumber);
                         }
@@ -369,6 +394,11 @@ public class MMSTActivity extends AppCompatActivity {
                 }
             }
 
+            /**
+             * @param view
+             * calculate last answer as function for the new task
+             * last answer -7 scores a point each time
+             */
             private void calculation(View view) {
                 String answer = answerTxf.getText().toString();
                 if (!answer.isEmpty()) {
@@ -377,7 +407,7 @@ public class MMSTActivity extends AppCompatActivity {
                         test.setTaskPointSuccessful(taskNumber);
                         test.setTaskInformation(taskNumber, answer);
                     } else {
-                        test.setTaskPointFailed(taskNumber);
+                        test.setTaskPointUnsuccessful(taskNumber);
                         test.setTaskInformation(taskNumber, answer);
                     }
                     expectedResult = Integer.parseInt(answer);
@@ -387,6 +417,11 @@ public class MMSTActivity extends AppCompatActivity {
                 }
             }
 
+            /**
+             * starts the test when all required textfields are filled correct
+             * (e.g. date of birth is not in the future and after 1900, name not empty)
+             * @param view
+             */
             private void checkInputToStartTest(View view) {
                 hideKeyboard(view);
                 if (!checkInput(expertTxf) || !checkInput(actualDateTxf) ||
@@ -400,7 +435,7 @@ public class MMSTActivity extends AppCompatActivity {
                         ageGroupTxf.setError(getString(R.string.impossibleInputError));
                         return;
                     }
-                    final Patient p = new Patient(surnameTxf.getText().toString(),
+                    final Participant p = new Participant(surnameTxf.getText().toString(),
                             firstnameTxf.getText().toString(),
                             yearOfBirth, othersTxf.getText().toString(),
                             agreementCxb.isChecked());
@@ -429,6 +464,10 @@ public class MMSTActivity extends AppCompatActivity {
                 }
             }
 
+            /**
+             * @param id id of the button
+             * setup button to record and makes the textfield for answers visible
+             */
             private void recordSpeech(int id) {
                 answerTxf.setVisibility(View.VISIBLE);
                 Button recBtn = (Button) findViewById(id);
@@ -440,10 +479,13 @@ public class MMSTActivity extends AppCompatActivity {
                 });
             }
 
-            private void startTest(Patient p) {
+            /**
+             * @param p participant of the test to start it
+             */
+            private void startTest(Participant p) {
                 test = new Mmse(p, expertTxf.getText().toString(), actualDateTxf.getText().toString());
                 agreementCxb.setChecked(true);
-                taskNumber++;
+                taskNumber++; // taskNumber 0 = Startformular, increment to start the first task
                 taskX.setVisibility(View.VISIBLE);
                 findViewById(android.R.id.content).invalidate();
                 vf.setDisplayedChild(taskNumber);
@@ -453,13 +495,16 @@ public class MMSTActivity extends AppCompatActivity {
                 nextTask(view, getResources().getString(taskText));
             }
 
+            /**
+             * @param taskText String with the instruction or question of the task
+             */
             private void nextTask(View view, String taskText) {
                 taskNumber++;
                 answerTxf.setText("");
                 taskX.setText(taskText);
                 vf.setDisplayedChild(taskNumber);
-                Snackbar.make(view, "Number " + taskNumber + ", Points: " + test.getPoints(),
-                        Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                Snackbar.make(view, "Number " + taskNumber + ", Points: " + test.getMmseTasks(),
+                        Snackbar.LENGTH_LONG).setAction("Action", null).show(); // TODO comment in final version
                 if (!(taskNumber >= 15 && taskNumber <= 18)) {
                     hideKeyboard(view);
                 }
@@ -475,55 +520,24 @@ public class MMSTActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.itemExpert:
-                if (!checkInput(expertTxf) || !checkInput(actualDateTxf) ||
-                        !checkInput(surnameTxf) || !checkInput(firstnameTxf)
-                        || !checkInput(ageGroupTxf)) {
-                } else {
-                    int yearOfBirth = Integer.parseInt(ageGroupTxf.getText().toString());
-                    if (yearOfBirth >= Calendar.getInstance().get(Calendar.YEAR)
-                            || yearOfBirth < 1900) {
-                        ageGroupTxf.setError(getString(R.string.impossibleInputError));
-                    }
-                    final Patient p = new Patient(surnameTxf.getText().toString(),
-                            firstnameTxf.getText().toString(),
-                            yearOfBirth, othersTxf.getText().toString(),
-                            agreementCxb.isChecked());
-                    if (!p.isAgreed()) {
-                        final AlertDialog.Builder builder = new AlertDialog.Builder(MMSTActivity.this);
-                        builder.setMessage(R.string.dialog_noAgreement_message)
-                                .setTitle(R.string.dialog_noAgreement_title);
-                        builder.setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                p.setAgreed();
-                                test = new Mmse(p, expertTxf.getText().toString(), actualDateTxf.getText().toString());
-                                agreementCxb.setChecked(true);
-
-                            }
-                        });
-                        builder.setNegativeButton(R.string.dialog_cancel, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                test = new Mmse(p, expertTxf.getText().toString(), actualDateTxf.getText().toString());
-                                new FileReaderSaver(builder.getContext()).saveMMSE(test);
-                                MMSTActivity.super.onBackPressed();
-                            }
-                        });
-                        AlertDialog dialog = builder.create();
-                        dialog.show();
-                    }
                     FileReaderSaver frs = new FileReaderSaver(this);
                     frs.saveMMSE(test);
                     Intent mmstIntent = new Intent(MMSTActivity.this, ExpertViewActivity.class);
-                    //mmstIntent.putExtra("id", id);;*/
+                    //mmstIntent.putExtra("id", id);*/
                     startActivityForResult(mmstIntent, 0);
-                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
+    /**
+     * @param textfield to check of emptiness
+     * @return true if the textfield is not empty
+     * false if it is empty and shows an error message
+     */
     private boolean checkInput(EditText textfield) {
         if (textfield.getText().toString().isEmpty()) {
             textfield.setError(getString(R.string.notEmptyError));
@@ -532,18 +546,18 @@ public class MMSTActivity extends AppCompatActivity {
         return true;
     }
 
-    public void getCurrentDate() {
+    /**
+     * set current date to the textfield actualDateTxf
+     */
+    public void setCurrentDate() {
         final Calendar c = Calendar.getInstance();
         SimpleDateFormat mdformat = new SimpleDateFormat("dd.MM.yyyy");
         actualDateTxf.setText(mdformat.format(c.getTime()));
     }
 
-    private static void hideKeyboard(View view) {
-        InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-
-    }
-
+    /**
+     * Speech recognizer for the spoken input
+     */
     private void displaySpeechRecognizer() {
         final int SPEECH_REQUEST_CODE = 0;
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);

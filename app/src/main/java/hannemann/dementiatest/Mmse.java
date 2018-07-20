@@ -1,78 +1,82 @@
 package hannemann.dementiatest;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
- * Created by Ann on 12.06.2018.
+ * Mini-Mental-Status-Test, Mini-Mental-State-Examination
+ * Screeningtest zur Erfassung und grobe Einschaetzung von kognitiven Funktionsstoerungen und des Schweregrades
+ * Nur fuer die Einschaetzung fortgeschrittener Demenz geeignet
  */
 public class Mmse {
-    private Patient patientUnderTest;
+    private Participant participantUnderTest;
     private String expertName, dateOfMmse;
-    private Task[] points = new Task[30];
+    private Task[] mmseTasks = new Task[30];
 
-    public Mmse(Patient patient, String expert, String date) {
-        this.patientUnderTest = patient;
+    public Mmse(Participant participant, String expert, String date) {
+        this.participantUnderTest = participant;
         this.expertName = expert;
         this.dateOfMmse = date;
-        for(int i = 0; i < 30; i++) {
-            points[i] = new Task(i);
+        for (int i = 0; i < 30; i++) {
+            mmseTasks[i] = new Task(i);
         }
-    }
-
-    public void setPatientUnderTest(Patient patientUnderTest) {
-        this.patientUnderTest = patientUnderTest;
     }
 
     public void setExpertName(String expertName) {
         this.expertName = expertName;
     }
 
-    public void setDateOfMmse(String dateOfMmse) {
-        this.dateOfMmse = dateOfMmse;
-    }
-
     public void setTaskPointSuccessful(int taskNumber) {
-        points[taskNumber].successful();
+        mmseTasks[taskNumber].successful();
     }
 
-    public void setTaskPointFailed(int taskNumber) { points[taskNumber].setAssessed(false); }
-
-    public void setTaskPointFalse(int taskNumber) { points[taskNumber].failed(); }
+    public void setTaskPointUnsuccessful(int taskNumber) {
+        mmseTasks[taskNumber].unsuccessful();
+    }
 
     public void setTaskInformation(int taskNumber, Object info) {
-        points[taskNumber].setInformation(info);
+        mmseTasks[taskNumber].setInformation(info);
     }
 
-    public int getPoints() {
+    public int getMmseTasks() {
         int sum = 0;
-        for (Task t: points) {
+        for (Task t : mmseTasks) {
             sum += t.getPoints();
         }
         return sum;
     }
 
     public Object getTaskInformation(int taskNumber) {
-        return points[taskNumber].getInformation();
+        return mmseTasks[taskNumber].getInformation();
     }
 
-    public Patient getPatientUnderTest() {
-        return patientUnderTest;
+    public Participant getParticipantUnderTest() {
+        return participantUnderTest;
+    }
+
+    public void setParticipantUnderTest(Participant participantUnderTest) {
+        this.participantUnderTest = participantUnderTest;
     }
 
     public String getDateOfMmse() {
         return dateOfMmse;
     }
 
+    public void setDateOfMmse(String dateOfMmse) {
+        this.dateOfMmse = dateOfMmse;
+    }
+
+    /**
+     * @return data of participant with sum of points
+     * name, date of test, expert, sum of scored points
+     */
     public List<String> getTestData() {
         List<String> result = new ArrayList<>();
-        result.add(patientUnderTest.getSurnamePatient() + " " + patientUnderTest.getFirstnamePatient());
+        result.add(participantUnderTest.getSurname() + " " + participantUnderTest.getFirstname());
         result.add(dateOfMmse);
+        result.add(expertName);
         int sum = 0;
-        for (Task t: points) {
+        for (Task t : mmseTasks) {
             sum += t.getPoints();
         }
         result.add(Integer.toString(sum));

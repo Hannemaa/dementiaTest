@@ -7,21 +7,6 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="hannemann.dementiatest.MMSTActivity">
 
-    <!--TextView
-        android:id="@+id/task03_text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:text="@string/task03"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" /-->
-
     <EditText
         android:id="@+id/task03_words"
         android:layout_width="0dp"
@@ -40,10 +25,10 @@
         android:id="@+id/task11_recBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sprechen"
-        app:layout_constraintTop_toBottomOf="@+id/task03_words"
         android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:text="Sprechen"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/task03_words" />
 
     <TextView
         android:id="@+id/task03_memorize"
@@ -51,12 +36,12 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:text="@string/task03_memorize"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/task11_recBtn"
-        android:layout_marginTop="8dp"
-        app:layout_constraintHorizontal_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/task11_recBtn" />
 
 </android.support.constraint.ConstraintLayout>

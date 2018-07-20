@@ -2,8 +2,6 @@ package hannemann.dementiatest;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -11,15 +9,11 @@ import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
 
 public class ResultListActivity extends AppCompatActivity {
     private ExpandableListAdapter listAdapter;
@@ -40,7 +34,8 @@ public class ResultListActivity extends AppCompatActivity {
         listAdapter = new ExpandableResultListAdapter(this, header, data);
         expListView.setAdapter(listAdapter);
 
-        LinearLayout empty = (LinearLayout) findViewById(R.id.empty_list_item);
+        // When the list of results is empty the app shows a button to start a new test
+        // without switching the view back to the main view
         Button startBtn = (Button) findViewById(R.id.startMmseBtn);
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,9 +44,13 @@ public class ResultListActivity extends AppCompatActivity {
                 ResultListActivity.this.startActivity(mmstIntent);
             }
         });
+        LinearLayout empty = (LinearLayout) findViewById(R.id.empty_list_item);
         expListView.setEmptyView(empty);
     }
 
+    /**
+     * @return HashMap key is the name of the participant, value a list of test results
+     */
     private HashMap<String, List<String>> prepareListData() {
         HashMap<String, List<String>> result = new HashMap<String, List<String>>();
         String[] dataArray = new FileReaderSaver(this.getBaseContext()).readFile().split("\\[");
@@ -59,10 +58,10 @@ public class ResultListActivity extends AppCompatActivity {
             s = s.replaceAll(".*=", "");
             s = s.replaceAll("]", "");
             if (!s.isEmpty()) {
-                List<String> testData = new ArrayList<>();
-                testData = Arrays.asList(s.split(", "));
+                List<String> testData = Arrays.asList(s.split(", "));
                 result.put(testData.get(0), testData);
-        }}
+            }
+        }
         return result;
     }
 }

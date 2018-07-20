@@ -8,7 +8,7 @@
     tools:context="hannemann.dementiatest.MMSTActivity">
 
     <ImageView
-        android:id="@+id/task06_img"
+        android:id="@+id/task06stift_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -17,14 +17,14 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/task22_recBtn"
+        app:layout_constraintLeft_toRightOf="@+id/task23_recBtn"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/task22_recBtn"
+        app:layout_constraintTop_toTopOf="@+id/task23_recBtn"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/armbanduhr" />
+        app:srcCompat="@drawable/bleistift" />
 
     <Button
-        android:id="@+id/task22_recBtn"
+        android:id="@+id/task23_recBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"

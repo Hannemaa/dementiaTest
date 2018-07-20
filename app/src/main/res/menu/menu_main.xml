@@ -1,8 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MMSTActivity"
-    android:theme="@style/AppNormalSize">
+    android:theme="@style/AppNormalSize"
+    tools:context=".MMSTActivity">
 
     <item
         android:id="@+id/itemExpert"

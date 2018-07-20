@@ -20,8 +20,8 @@ public class PaintView extends View {
     public static final int BRUSH_SIZE = 5;
     public static final int DEFAULT_COLOR = Color.BLACK;
     public static final int DEFAULT_BG_COLOR = Color.WHITE;
-    private int backgroundColor = DEFAULT_BG_COLOR;
     private static final float TOUCH_TOLERANCE = 4;
+    private int backgroundColor = DEFAULT_BG_COLOR;
     private float mX, mY;
     private Path mPath;
     private Paint mPaint;
@@ -96,16 +96,16 @@ public class PaintView extends View {
         float x = event.getX();
         float y = event.getY();
 
-        switch(event.getAction()) {
-            case MotionEvent.ACTION_DOWN :
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
                 touchStart(x, y);
                 invalidate();
                 break;
-            case MotionEvent.ACTION_MOVE :
+            case MotionEvent.ACTION_MOVE:
                 touchMove(x, y);
                 invalidate();
                 break;
-            case MotionEvent.ACTION_UP :
+            case MotionEvent.ACTION_UP:
                 touchUp();
                 invalidate();
                 break;
